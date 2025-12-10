@@ -29,6 +29,9 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--bg-main);
+
+    /* 👉 Para que el header fijo NO tape el contenido */
+    padding-top: 90px; /* ajusta si ves mucho o poco espacio */
 }
 
 a {
@@ -54,6 +57,16 @@ ul {
     background-color: #ffffff;
     border-bottom: 1px solid var(--light-grey);
     padding: 10px 0;
+
+    /* 👉 SIEMPRE FIJO ARRIBA */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+
+    /* Sombrilla elegante al hacer scroll */
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .top-nav {
