@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euforia - Tienda de Belleza</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </head>
@@ -14,9 +15,15 @@
 
     <header class="main-header">
         <div class="top-nav">
+            <!-- Botón menú (igual que en index) -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Menú de categorías (usa data-area para filtrar) -->
             <nav class="categories-nav">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li> 
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#" data-area="Rostro">Rostro</a></li>
                     <li><a href="#" data-area="Ojos">Ojos</a></li>
                     <li><a href="#" data-area="Labios">Labios</a></li>
@@ -27,12 +34,17 @@
                     <li><a href="#" data-area="Lociones">Lociones</a></li>
                 </ul>
             </nav>
-            <div class="logo">Euforia Boutique.</div>
+
+            <!-- Logo igual que en index -->
+            <div class="logo">Euforia Store</div>
+
+            <!-- Iconos derecha (mismos de index) -->
             <div class="icon-links">
-                <a href="#" class="new-tag">NUEVO</a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <!-- <a href="#"><i class="fa-regular fa-user"></i></a> -->
-                <a href="#" id="cart-icon">
+                <!-- <a href="#" class="new-tag">NUEVO</a> -->
+                <a href="https://www.instagram.com/euforiaboutique.co?igsh=bnJjcDZyOXIwY2xu"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=573001234567&text=%C2%A1Hola+Euforia%21+Quisiera+hacer+un+pedido+de+los+siguientes+productos%3A%0A%0A-+Fijador+Trendy+Cosmic+Night+%28x1%29+-+Subtotal%3A+%2425.000%0A%0A----------------------------------%0A%2ATOTAL+ESTIMADO%3A+%2425.000%2A%0A----------------------------------%0A&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@euforia.col?_r=1&_t=ZS-927F9JbTk6S"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="productos.html" id="cart-icon">
                     <i class="fa-solid fa-bag-shopping"></i> (<span id="cart-count">0</span>)
                 </a>
             </div>
@@ -45,7 +57,7 @@
             <p id="loading-message">Cargando productos...</p>
         </div>
     </section>
-    
+
     <div id="cart-sidebar" class="cart-sidebar">
         <button id="close-cart-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
         <h3>🛒 Tu Carrito</h3>
@@ -55,7 +67,7 @@
             <button id="whatsapp-order-btn" class="cta-button">Enviar Pedido por WhatsApp</button>
         </div>
     </div>
-    
+
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">Euforia Boutique.</div>
@@ -73,7 +85,7 @@
                         <li><a href="lociones.html">Lociones</a></li>
                     </ul>
                 </div>
-                <div class="column">
+                <!-- <div class="column">
                     <h4>Legales</h4>
                     <ul>
                         <li><a href="#">Políticas de privacidad</a></li>
@@ -82,14 +94,14 @@
                         <li><a href="#">Políticas de envío</a></li>
                         <li><a href="#">Promos y concursos</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="column">
                     <h4>Sobre nosotros</h4>
                     <p>Visítanos en:</p>
-                    <p>📍 Medellín, C.C. Florida - Local 1240 / Etapa 2.</p>
-                    <p>Somos una marca by <strong>Atenea Profesional.</strong></p>
+                    <p>📍 .</p>
+                    <!-- <p>Somos una marca by <strong>Atenea Profesional.</strong></p> -->
                 </div>
-                <div class="column subscribe">
+                <!-- <div class="column subscribe">
                     <h4>Suscríbete</h4>
                     <p>Sé el primero en enterarte de nuestras novedades y descuentos.</p>
                     <div class="subscribe-form">
@@ -97,14 +109,14 @@
                         <button>ENVIAR →</button>
                     </div>
                     <small>Este sitio está protegido por hCaptcha y se aplican la Política de privacidad de hCaptcha y los Términos del servicio.</small>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="footer-bottom">
             <p>© EuforiaBoutique 2025</p>
         </div>
     </footer>
-    
+
     <!-- TOAST / NOTIFICACIÓN DE CARRITO -->
     <div id="toast" class="toast hidden">
         <span class="toast-icon">✔</span>
@@ -118,6 +130,20 @@
         <span>⚠</span>
         <span id="toast-error-message">Error</span>
     </div>
+
+    <!-- Toggle menú móvil (igual que en index) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const nav = document.querySelector('.categories-nav');
+
+            if (btn && nav) {
+                btn.addEventListener('click', () => {
+                    nav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
 
     <script src="app.js"></script>
 </body>
