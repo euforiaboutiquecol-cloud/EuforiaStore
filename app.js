@@ -17,7 +17,7 @@ const firebaseConfig = {
 let db;
 let allProducts = [];
 let carrito = [];
-const miNumeroWhatsApp = "573222393223"; // 👈 CAMBIA POR TU NÚMERO REAL (con indicativo)
+const miNumeroWhatsApp = "573001234567"; // 👈 CAMBIA POR TU NÚMERO REAL (con indicativo)
 
 // Inicialización de Firebase
 if (typeof firebase !== "undefined") {
@@ -392,6 +392,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             whatsappBtn.addEventListener("click", enviarPedidoWhatsApp);
         }
+    }
+    
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const categoriesNav = document.querySelector(".categories-nav");
+
+    if (mobileMenuBtn && categoriesNav) {
+        mobileMenuBtn.addEventListener("click", () => {
+            categoriesNav.classList.toggle("nav-open");
+            mobileMenuBtn.classList.toggle("is-open");
+        });
+
+        categoriesNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                categoriesNav.classList.remove("nav-open");
+                mobileMenuBtn.classList.remove("is-open");
+            });
+        });
     }
 });
 
