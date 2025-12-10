@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euforia Boutique - Tienda de Belleza</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
     <header class="main-header">
         <div class="top-nav">
+            <!-- Botón menú (se muestra solo en móvil) -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Menú de categorías -->
             <nav class="categories-nav">
                 <ul>
                     <li><a href="index.html" class="active-category">Inicio</a></li>
@@ -26,10 +33,16 @@
                     <li><a href="lociones.html">Lociones</a></li>
                 </ul>
             </nav>
-            <div class="logo">Euforia Boutique.</div>
+
+            <!-- Logo -->
+            <div class="logo">Euforia Store</div>
+
+            <!-- Iconos derecha -->
             <div class="icon-links">
-                <a href="#" class="new-tag">NUEVO</a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <!-- <a href="#" class="new-tag">NUEVO</a> -->
+                <a href="https://www.instagram.com/euforiaboutique.co?igsh=bnJjcDZyOXIwY2xu"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=573001234567&text=%C2%A1Hola+Euforia%21+Quisiera+hacer+un+pedido+de+los+siguientes+productos%3A%0A%0A-+Fijador+Trendy+Cosmic+Night+%28x1%29+-+Subtotal%3A+%2425.000%0A%0A----------------------------------%0A%2ATOTAL+ESTIMADO%3A+%2425.000%2A%0A----------------------------------%0A&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@euforia.col?_r=1&_t=ZS-927F9JbTk6S"><i class="fa-brands fa-tiktok"></i></a>
                 <a href="productos.html" id="cart-icon">
                     <i class="fa-solid fa-bag-shopping"></i> (<span id="cart-count">0</span>)
                 </a>
@@ -41,18 +54,19 @@
     <section class="hero-banner">
         <div class="hero-content">
             <div class="hero-image-container">
-                <img src="https://firebasestorage.googleapis.com/v0/b/euforia-inv.firebasestorage.app/o/Accesorios%2Fbanner.png?alt=media&token=d454d194-d3fa-42c8-a893-07a9565174b4" alt="Colección Euforia" class="hero-img" />
+                <img src="https://firebasestorage.googleapis.com/v0/b/euforia-inv.firebasestorage.app/o/Accesorios%2Fbanner.png?alt=media&token=d454d194-d3fa-42c8-a893-07a9565174b4"
+                    alt="Colección Euforia" class="hero-img" />
             </div>
 
             <div class="hero-text-container right">
-                <span class="hero-tagline">Nueva colección · Glow & Fragancias</span>
-                <h1>Esencias duales</h1>
-                <p>Fórmulas ligeras de rápida absorción que cuidan tu piel y llenan de aroma tus momentos favoritos.</p>
+                <span class="hero-tagline">Maquillaje · Linea corporal · Pijamas</span>
+                <h1>Revisa nuestro catalogo</h1>
+                <p>Un espacio creado para mujeres que aman verse y sentirse bien.</p>
 
-                <div class="hero-actions">
-                    <a href="productos.html" class="cta-button">Ver catálogo completo</a>
+                <!-- <div class="hero-actions">
+                    <a href="productos.html" class="cta-button">Inicia con tu busqueda</a>
                     <a href="lociones.html" class="ghost-button">Lociones y fragancias</a>
-                </div>
+                </div> -->
 
                 <div class="hero-highlights">
                     <div class="hero-highlight-item">
@@ -106,7 +120,7 @@
                 <div class="home-category-icon">
                     <i class="fa-solid fa-moon"></i>
                 </div>
-                <h3 class="home-category-title">Pijamas & comfy</h3>
+                <h3 class="home-category-title">Pijamas</h3>
                 <p class="home-category-text">Batas térmicas y conjuntos suaves para noches súper cozy.</p>
             </a>
 
@@ -128,13 +142,6 @@
         </div>
     </section>
 
-    <!-- SI QUIERES, PUEDES DEJAR ESTE BLOQUE O QUITARLO
-         PORQUE YA TENEMOS LAS CATEGORÍAS ARRIBA
-    <section class="product-showcase">
-        ...
-    </section>
-    -->
-
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-logo">Euforia Boutique.</div>
@@ -153,7 +160,7 @@
                         <li><a href="lociones.html">Lociones</a></li>
                     </ul>
                 </div>
-                <div class="column">
+                <!-- <div class="column">
                     <h4>Legales</h4>
                     <ul>
                         <li><a href="#">Políticas de privacidad</a></li>
@@ -162,7 +169,7 @@
                         <li><a href="#">Políticas de envío</a></li>
                         <li><a href="#">Promos y concursos</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="column">
                     <h4>Sobre nosotros</h4>
                     <p>Visítanos en:</p>
@@ -204,6 +211,20 @@
         <span>⚠</span>
         <span id="toast-error-message">Error</span>
     </div>
+
+    <!-- Toggle menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.getElementById('mobile-menu-btn');
+            const nav = document.querySelector('.categories-nav');
+
+            if (btn && nav) {
+                btn.addEventListener('click', () => {
+                    nav.classList.toggle('open');
+                });
+            }
+        });
+    </script>
 
     <script src="app.js"></script>
 </body>
